@@ -12,13 +12,21 @@ jQuery tooltip plugin
 
 html
 
-<blockquote><a href="http://caibaojian.com" title="about frontend website">caibaojian</a></blockquote>
+<pre><code>&lt;a href="http://caibaojian.com" title="about frontend website"&gt;caibaojian&lt;/a&gt;</code></pre>
 
 jQuery
-<blockquote><script>$(function(){ $("a").tooltip();}); </script></blockquote>
+<pre><code>&lt;script&gt;$(function(){ $("a").tooltip();}); &lt;/script&gt;</code></pre>
 
 config
 
-
+| config name   | default value | config description                                |
+|---------------|---------------|---------------------------------------------------|
+| positionPro   | "position"    | position property                                 |
+| positionValue | null          | position value ,you can set it as 'top' or 'left' |
+| positionX     | 10            | position  X distance                              |
+| positionY     | 20            | position Y distance                               |
+| tipEle        | "tooltip"     | set the tooltip ID                                |
+| tipText       | 'title'       | set the tooltip property                          |
+| tipFlag       | true          |                                                   |
 
 
