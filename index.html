@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>toolTips</title>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/tooltip.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#default a").toolTip(); //例子一
+			$("#customTtitle a").toolTip({tipText:"tipText"}); //例子二
+			$("#customPos a").toolTip(); //例子三
+			$("#customEle a").toolTip({tipEle:"customTip"}) //例子四
+			$("#customFlag a").toolTip({tipFlag:false}); //例子五
+			$(".hasTip").toolTip(); //文档演示需要，请无视
+		})
+	</script>
+	<style type="text/css">
+	/* 演示文档CSS开始 */
+	::-moz-selection {
+		background-color: #feffc3;
+		color: #888888;
+	}::selection {
+		background-color: #feffc3;
+		color: #888888;
+	}
+	*{margin:0; padding:0;}
+	a{text-decoration: none; color:#444;}
+	a:hover{color:#61e69d; outline: none;}
+	li{list-style: none;}
+	p{margin:10px 0 15px;}
+	body{font:14px/1.6 Microsoft Yahei;}
+	.inline-ul{font-size: 0; *word-spacing: -1px;}
+	.inline-ul li{font-size:14px; display: inline-block; *display: inline; *zoom:1; letter-spacing: normal; word-spacing: normal; vertical-align: top;}
+	@media screen and (-webkit-min-device-pixel-ratio:0){
+		.inline-ul{letter-spacing: -5px;}
+	}
+	.text-center{text-align: center;}
+
+	#header{width:88%; padding:20px 6%; border-bottom:4px solid rgba(0,0,0,0.1); zoom:1; position: fixed; left:0; top:0; z-index: 999; background: #fff;}
+	#header:before, #header:after{display: table; content:"";}
+	#header:after{clear:both;}
+	#header h1{font-size:16px; float: left;}
+	.nav{float: right;}
+	.nav li{margin:0 10px; letter-spacing: 5px;}
+	#example{padding:100px 0 0px;}
+	.even-bg{background: #F4F4F4;}
+	.container{max-width:740px; width:90%; padding:20px 5%; margin:0 auto;}
+	.container h2{border-bottom:1px solid #ddd; padding-bottom:10px; margin: 10px 0 10px;}
+	#example li{margin:0 10px 10px 0;}
+	#example li a, .btn-block{display: block; background: #61E69D; color: #fff;padding:5px 16px; border-radius: 5px; border-bottom:4px solid #5cd994;}
+	#example li a:hover, .btn-block:hover{color:#fff;}
+	.btn-large{padding:15px;}
+	#customTip{position:absolute; z-index: 1000; max-width: 300px; width:auto; margin:0; padding:0; background: #E8E8E8;}
+	#customTip p{padding:5px 10px; margin:0; color:#00c670; font-family: Microsoft Yahei;}
+	#customTip:before{
+		content: "";
+			position: absolute;
+			left: 7px;
+			top: -8px;
+			border-style: dashed dashed solid;
+			border-color: transparent transparent #E8E8E8;
+			border-width: 0 6px 8px;
+
+	}
+	table{width:100%;  border-collapse: collapse;}
+	table td, table th{padding:5px 8px;border:1px solid #ddd;}
+	/* 演示文档CSS结束 */
+
+	/* 插件需要的CSS开始*/
+	#tooltip{position:absolute;z-index:1000;max-width:300px;width:auto;margin:0; padding:0;background:#181818; opacity: .8; word-break:break-all;}
+	#tooltip p{padding:5px 10px; margin:0;color:#FFFFFF;font-family:Arial,Helvetica,Sans-serif;}
+	/* 插件本身需要的CSS结束*/
+	</style>
+</head>
+<body>
+	<header id="header">
+		<h1><a href="#">内容提示工具(toolTip)</a></h1>
+		<nav class="nav">
+			<ul class="inline-ul">
+				<li><a href="#example">演示例子</a></li>
+				<li><a href="#usage">使用方法</a></li>
+				<li><a href="#download">下载插件</a></li>
+				<li><a target="_blank" rel="nofollow external" href="http://v.t.sina.com.cn/share/share.php?url=http://caibaojian.com/demo/tooltip/index.html&amp;title=jQuery插件：工具提示，特色多种方向，样式随你定，间距随你调，提示随你喜欢">分享插件</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section id="example" class="even-bg">
+		<div class="container">
+			<h2>默认演示例子</h2>
+			<ul class="inline-ul" id="default">
+				<li><a href="javascript:void(0)" title="默认方式">默认方式(右小角)</a></li>
+				<li><a href="javascript:void(0)" title="右上角" position="top">右上角</a></li>
+				<li><a href="javascript:void(0)" title="左下角" position="left">左下角</a></li>
+				<li><a href="javascript:void(0)" title="左上角" position="left top">左上角</a></li>
+			</ul>
+			<h2>自定义提示的标签为"tipText"</h2>
+			<ul class="inline-ul" id="customTtitle">
+				<li><a href="javascript:void(0)" tipText="默认方式">默认方式(右小角)</a></li>
+				<li><a href="javascript:void(0)" tipText="右上角" position="top">右上角</a></li>
+				<li><a href="javascript:void(0)" title="左下角" position="left">左下角，没加tipText，不显示</a></li>
+				<li><a href="javascript:void(0)" title="左上角" position="left top">左上角，没加tipText,不显示</a></li>
+			</ul>
+			<h2>自定义X轴与Y轴的间距</h2>
+			<ul class="inline-ul" id="customPos">
+				<li><a href="javascript:void(0)" title="默认方式">默认X轴为10,Y轴为20</a></li>
+				<li><a href="javascript:void(0)" title="X轴为20，Y轴为20" positionX="20" positionY="20">X轴为20，Y轴为20</a></li>
+				<li><a href="javascript:void(0)" title="X轴为-20，Y轴为20" positionX="-20" positionY="20">X轴为-20，Y轴为20</a></li>
+				<li><a href="javascript:void(0)" title="X轴为-20，Y轴为-50" positionX="-20" positionY="-50">X轴为-20，Y轴为-50</a></li>
+			</ul>
+			<h2>修改提示的样式</h2>
+			<ul class="inline-ul" id="customEle">
+				<li><a href="javascript:void(0)" title="默认方式">默认方式(右小角)</a></li>
+				
+			</ul>
+			<h2>取消某一部分的提示</h2>
+			<div id="customFlag">
+				<ul class="inline-ul">
+					<li><a href="javascript:void(0)" title="默认方式">默认方式(右小角)</a></li>
+					<li><a href="javascript:void(0)" title="右上角" position="top">右上角</a></li>
+					<li><a href="javascript:void(0)" title="左下角" position="left">左下角</a></li>
+					<li><a href="javascript:void(0)" title="左上角" position="left top">左上角</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section id="usage">
+		<div class="container">
+			<h2>使用方法</h2>
+			<p>该插件使用比较绿色的做法，提示工具的样式使用CSS自定义，jQuery插件只是定义显示的位置。所以需要在引进插件的同时，也要增加一点样式。</p>
+			<p><strong>jQuery代码</strong></p>
+<pre><code>&lt;script src="jquery.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+$("#default a").toolTip();
+})
+&lt;/script&gt;</code></pre>
+			<p><strong>CSS样式</strong></p>
+<pre><code>#tooltip{position:absolute;z-index:1000;max-width:300px;width:auto;margin:0; padding:0;background:#181818; opacity: .8;}
+#tooltip p{padding:5px 10px; margin:0;color:#FFFFFF;font-family:Arial,Helvetica,Sans-serif;}</code></pre>
+		<h2>参数介绍</h2>
+		<table>
+			<thead><tr><th>参数名字</th><th>默认值</th><th>参数作用</th></tr></thead>
+			<tbody>
+				<tr><td>positionPro</td><td>"position"</td><td>标记位置的属性，你可以随意定义你需要的属性</td></tr>
+				<tr><td>positionValue</td><td>null</td><td>标记位置的值，默认在右下角，你可以定义'left'和'top'</td></tr>
+				<tr><td>positionX</td><td>10</td><td>距离X轴的距离为10像素，可以设为负值(你可以直接在HTML定义某个的X轴的间距)</td></tr>
+				<tr><td>positionY</td><td>20</td><td>距离X轴的距离为20像素，可以设为负值(你可以直接在HTML定义某个的X轴的间距)</td></tr>
+				<tr><td>tipEle</td><td>"tooltip"</td><td>提示方式的ID，你可以自定以你设定的ID</td></tr>
+				<tr><td>tipText</td><td>"title"</td><td>提示的文字，你可以自定义为你设定的属性</td></tr>
+				<tr><td>tipFlag</td><td>true</td><td>是否显示提示，可以设为false不显示</td></tr>
+			</tbody>
+		</table>
+		</div>
+	</section>
+	<section id="download" class="even-bg">
+		<div class="container text-center">
+			<p><a href="" class="btn-block btn-large hasTip" title="下载插件" position="top" positionY="-5">下载插件</a></p>
+			<p>包含演示文档和JS文件</p>
+		</div>
+	</section>
+	<footer id="footer">
+		<div class="container text-center">
+			<a  target="_blank" rel="nofollow external" href="http://v.t.sina.com.cn/share/share.php?url=http://caibaojian.com/demo/tooltip/index.html&amp;title=jQuery插件：工具提示，特色多种方向，样式随你定，间距随你调，提示随你喜欢" class="hasTip" title="分享到微博"><img src="weibo.gif" alt="分享到微博"/></a>
+			<p>如果你发现这个插件对你有用，请把他分享给你身边的小伙伴吧</p>
+			<p>发现这个插件有问题的，可以给我留言 &copy; <a href="http://caibaojian.com/" class="hasTip" title="关注前端开发的最新知识" position="top">前端开发博客</a>版权所有</p>
+		</div>
+	</footer>
+</body>
+</html>
