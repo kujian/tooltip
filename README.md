@@ -27,6 +27,6 @@ config
 | positionY     | 20            | position Y distance                               |
 | tipEle        | "tooltip"     | set the tooltip ID                                |
 | tipText       | 'title'       | set the tooltip property                          |
-| tipFlag       | true          |                                                   |
+| tipFlag       | true          | set it see or not                                 |
 
 
