@@ -12,10 +12,10 @@ jQuery tooltip plugin
 
 html
 
-<pre><code><a href="http://caibaojian.com" title="about frontend website">caibaojian</a></code></pre>
+<blockquote><a href="http://caibaojian.com" title="about frontend website">caibaojian</a></blockquote>
 
 jQuery
-<pre><code><script>$(function(){ $("a").tooltip();}); </script></code></pre>
+<blockquote><script>$(function(){ $("a").tooltip();}); </script></blockquote>
 
 config
 
