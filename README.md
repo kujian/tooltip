@@ -11,10 +11,11 @@ jQuery tooltip plugin
 ## How it work
 
 html
-<a href="http://caibaojian.com" title="about frontend website">caibaojian</a>
+
+<pre><code><a href="http://caibaojian.com" title="about frontend website">caibaojian</a></code></pre>
 
 jQuery
-<script>$(function(){ $("a").tooltip();}); </script>
+<pre><code><script>$(function(){ $("a").tooltip();}); </script></code></pre>
 
 config
 
